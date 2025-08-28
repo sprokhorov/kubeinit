@@ -8,6 +8,7 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
+    environment: public
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
@@ -20,7 +21,6 @@ jobs:
 
       - name: Log in to DockerHub
         uses: docker/login-action@v3
-        environment: public
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
