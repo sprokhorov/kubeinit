@@ -115,8 +115,9 @@ LABEL org.opencontainers.image.title="A kubeinit Image" \
 ################################
 # Security: non-root user
 ################################
-RUN useradd -u 10001 -m appuser
+RUN useradd -u 10001 -m appuser && mkdir /app && chown appuser /app
 USER appuser
+WORKDIR /app
 
 ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["kubeinit"]
