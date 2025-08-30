@@ -108,7 +108,7 @@ LABEL org.opencontainers.image.title="A kubeinit Image" \
       org.opencontainers.image.description="Container with kubeinit, helmfile, helm, kubectl, and AWS CLI" \
       org.opencontainers.image.url="https://github.com/sprokhorov/kubeinit" \
       org.opencontainers.image.source="https://github.com/sprokhorov/kubeinit" \
-      org.opencontainers.image.version="0.1.0" \
+      org.opencontainers.image.version="0.1.1" \
       org.opencontainers.image.licenses="Apache-2.0" \
       org.opencontainers.image.vendor="Sergey Prokhorov"
 
