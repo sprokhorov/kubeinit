@@ -83,7 +83,14 @@ func main() {
 	log.Infow("Kubernetes cluster configured successfully", "cluster", cfg.ClusterName)
 
 	// Run helmfile
-	if err := exec.Command("helmfile", "-f", FILE_DESTINATION, "apply").Run(); err != nil {
-		log.Fatal(err)
+	command := []string{"helmfile", "-f", FILE_DESTINATION, "apply"}
+	cmd := exec.Command(command[0], command[1:]...)
+
+	// Capture combined stdout + stderr
+	out, err := cmd.CombinedOutput()
+	if err != nil {
+		logger.Error("command failed", zap.Error(err), zap.ByteString("output", out))
+		return
 	}
+	logger.Info("command output", zap.ByteString("output", out))
 }
