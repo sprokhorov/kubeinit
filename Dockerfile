@@ -119,6 +119,7 @@ LABEL org.opencontainers.image.title="A kubeinit Image" \
 RUN useradd -u 10001 -m appuser && mkdir /app && chown appuser /app
 USER appuser
 WORKDIR /app
+RUN helm plugin install https://github.com/databus23/helm-diff
 
 ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["kubeinit"]
