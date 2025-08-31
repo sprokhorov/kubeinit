@@ -43,6 +43,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       unzip \
       bash \
       tini \
+      git \
     && rm -rf /var/lib/apt/lists/*
 
 ################################
